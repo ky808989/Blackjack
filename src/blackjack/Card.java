@@ -21,7 +21,7 @@ public class Card {
     }
     
     public int getVal(){
-        return this.value;
+        return (value >= 10) ? 10 : value;
     }
     
     public Suits getSuit(){

@@ -1,6 +1,8 @@
 package blackjack;
+
 import java.util.ArrayList;
 import java.util.Random;
+
 /**
  *
  * @author peter
@@ -40,7 +42,7 @@ public class Deck {
         return cards.remove(ran.nextInt(cards.size()));
     }
     
-    public int getRemainNumber(){
+    public int length(){
         return cards.size();
     }
     
