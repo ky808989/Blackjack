@@ -10,9 +10,11 @@ import java.util.Iterator;
 public class HandSet {
     
     private ArrayList<Card> set;
+    private boolean busted;
     
     public HandSet(){
         this.set = new ArrayList<Card>();
+        this.busted = false;
     }
     
     public int getPoint(){
@@ -23,7 +25,7 @@ public class HandSet {
                 AceCount++;
                 point = point + card.getVal() + 10;
             }else{
-                point =+ card.getVal();
+                point = point + card.getVal();
             }
         }
         // calculate optimized points
@@ -31,6 +33,10 @@ public class HandSet {
             point =- 10;
         }
         return point;
+    }
+    
+    public boolean isBusted(){
+        return this.busted;
     }
     
     public int length(){
@@ -43,6 +49,9 @@ public class HandSet {
     
     public void add(Card card){
         this.set.add(card);
+        if(getPoint() > 21){
+            this.busted = true;
+        }
     }
     
     public Card remove(){
@@ -78,6 +87,10 @@ public class HandSet {
         }
         System.out.println(content);
         return content;
+    }
+    
+    public boolean isBJ(){
+        return (this.getPoint() == 21 & this.length() == 2);
     }
     
 }
